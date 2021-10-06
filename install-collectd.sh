@@ -24,6 +24,11 @@ mv /home/.ssh/id_rsa.pub /home/.ssh/authorized_keys
 sshpass -p ${PASS} scp -o StrictHostKeyChecking=no -r /home/.ssh/ ${USER}@127.0.0.1:~/
 
 # installation
+if [ "${OS}" == "centos" ]
+then
+    ssh ${USER}@127.0.0.1 'echo '${PASS}' | sudo -S yum -y install epel-release'
+    ssh ${USER}@127.0.0.1 'echo '${PASS}' | sudo -S yum repolist'
+fi
 ssh ${USER}@127.0.0.1 'echo '${PASS}' | sudo -S '${PKG}
 sshpass -p ${PASS} scp -o StrictHostKeyChecking=no /home/${COPYFILE} ${USER}@127.0.0.1:~/${COPYFILE}
 ssh ${USER}@127.0.0.1 'echo '${PASS}' | sudo -S mv -f ~/'${COPYFILE}' '${CONF}
