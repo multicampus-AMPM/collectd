@@ -1630,7 +1630,7 @@ LoadPlugin write_http
 #</Plugin>
 
 <Plugin write_http>
-	<Node "example">
+	<Node "collectd_exporter">
 		URL "http://127.0.0.1:9103/collectd"
 #		User "collectd"
 #		Password "weCh3ik0"
