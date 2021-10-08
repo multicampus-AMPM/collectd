@@ -7,6 +7,9 @@ then
     exit 0
 fi
 
+# install packages
+yum -y install openssh-clients sshpass
+
 # set the variables
 if [ "${OS}" == "centos" ]
 then
