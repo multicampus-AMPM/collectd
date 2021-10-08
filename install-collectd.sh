@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# to avoid to run this script multiple times
+if [ "${MODE}" != 'install' ]
+then
+    echo "assuming installation already done"
+    exit 0
+fi
+
 # set the variables
 if [ "${OS}" == "centos" ]
 then
